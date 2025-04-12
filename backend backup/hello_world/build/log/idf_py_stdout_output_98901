@@ -1,0 +1,140 @@
+Command: /Users/conanpan/.espressif/python_env/idf5.5_py3.10_env/bin/python /Users/conanpan/esp/esp-idf/tools/idf_monitor.py -p /dev/tty.usbmodem1101 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /Users/conanpan/esp/hello_world/build/hello_world.elf /Users/conanpan/esp/hello_world/build/bootloader/bootloader.elf -m '/Users/conanpan/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/Users/conanpan/esp/esp-idf/tools/idf.py' '-p' '/dev/tty.usbmodem1101'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037a0ba
+SPIWP:0xee
+Octal Flash Mode Enabled
+For OPI Flash, Use Default Flash Boot Mode
+mode:SLOW_RD, clock div:1
+load:0x3fce2820,len:0x15d0
+load:0x403c8700,len:0xd20
+load:0x403cb700,len:0x2f60
+entry 0x403c8924
+[0;32mI (32) boot: ESP-IDF v5.5-dev-2290-g94cfe394fe 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Apr 12 2025 13:31:15[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (34) boot: chip revision: v0.1[0m
+[0;32mI (37) boot: efuse block revision: v1.2[0m
+[0;32mI (41) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (44) boot.esp32s3: SPI Mode       : SLOW READ[0m
+[0;32mI (49) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (52) boot: Enabling RNG early entropy source...[0m
+[0;32mI (57) boot: Partition Table:[0m
+[0;32mI (60) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (66) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (85) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=3c0b0020 size=1ee30h (126512) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0002ee58 vaddr=3fc99e00 size=011c0h (  4544) load[0m
+[0;32mI (127) esp_image: segment 2: paddr=00030020 vaddr=42000020 size=a4a68h (674408) map[0m
+[0;32mI (288) esp_image: segment 3: paddr=000d4a90 vaddr=3fc9afc0 size=037f8h ( 14328) load[0m
+[0;32mI (292) esp_image: segment 4: paddr=000d8290 vaddr=40374000 size=15d14h ( 89364) load[0m
+[0;32mI (317) esp_image: segment 5: paddr=000edfac vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (326) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (326) boot: Disabling RNG early entropy source...[0m
+[0;32mI (336) cpu_start: Multicore app[0m
+[0;32mI (346) cpu_start: Pro cpu start user code[0m
+[0;32mI (346) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (346) app_init: Application information:[0m
+[0;32mI (346) app_init: Project name:     hello_world[0m
+[0;32mI (350) app_init: App version:      1[0m
+[0;32mI (353) app_init: Compile time:     Apr 12 2025 13:22:10[0m
+[0;32mI (358) app_init: ELF file SHA256:  34a405289...[0m
+[0;32mI (363) app_init: ESP-IDF:          v5.5-dev-2290-g94cfe394fe[0m
+[0;32mI (368) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (372) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (376) efuse_init: Chip rev:         v0.1[0m
+[0;32mI (380) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (386) heap_init: At 3FCA2A50 len 00046CC0 (283 KiB): RAM[0m
+[0;32mI (391) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (396) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (402) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;33mW (407) spi_flash: Octal flash chip is using but dio mode is selected, will automatically switch to Octal mode[0m
+[0;32mI (417) spi_flash: detected chip: mxic (opi)[0m
+[0;32mI (421) spi_flash: flash io: opi_str[0m
+[0;33mW (424) spi_flash: Detected size(32768k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (436) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (443) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (449) main_task: Started on CPU0[0m
+[0;32mI (459) main_task: Calling app_main()[0m
+[0;32mI (479) pp: pp rom version: e7ae62f[0m
+[0;32mI (479) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (489) wifi:wifi driver task: 3fca7840, prio:23, stack:6656, core=0[0m
+[0;32mI (489) wifi:wifi firmware version: 3a3aca644[0m
+[0;32mI (499) wifi:wifi certification version: v7.0[0m
+[0;32mI (499) wifi:config NVS flash: enabled[0m
+[0;32mI (499) wifi:config nano formatting: disabled[0m
+[0;32mI (499) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (499) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (509) wifi:Init management short buffer num: 32[0m
+[0;32mI (509) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (519) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (519) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (529) wifi:Init static rx buffer num: 10[0m
+[0;32mI (529) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (529) wifi_init: rx ba win: 6[0m
+[0;32mI (539) wifi_init: accept mbox: 6[0m
+[0;32mI (539) wifi_init: tcpip mbox: 32[0m
+[0;32mI (539) wifi_init: udp mbox: 6[0m
+[0;32mI (539) wifi_init: tcp mbox: 6[0m
+[0;32mI (549) wifi_init: tcp tx win: 5760[0m
+[0;32mI (549) wifi_init: tcp rx win: 5760[0m
+[0;32mI (549) wifi_init: tcp mss: 1440[0m
+[0;32mI (559) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (559) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (559) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (579) phy_init: phy_version 700,8582a7fd,Feb 10 2025,20:13:11[0m
+[0;32mI (619) wifi:mode : sta (7c:df:a1:fb:27:00)[0m
+[0;32mI (619) wifi:enable tsf[0m
+[0;32mI (629) wifi:new:<7,0>, old:<1,0>, ap:<255,255>, sta:<7,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (629) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (639) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (639) wifi:Association refused temporarily time 981, comeback time 1081 (TUs)[0m
+[0;32mI (1749) wifi:state: assoc -> assoc (0x0)[0m
+[1;31mE (1759) wifi:Association refused too many times, max allowed 1[0m
+[0;32mI (1759) wifi:state: assoc -> init (0xd010)[0m
+[0;32mI (1769) wifi:new:<7,0>, old:<7,0>, ap:<255,255>, sta:<7,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (1769) ESP32_FIREBASE: Wi‑Fi disconnected — retrying…[0m
+[0;33mW (4169) ESP32_FIREBASE: Wi‑Fi disconnected — retrying…[0m
+[0;32mI (4179) wifi:new:<7,0>, old:<7,0>, ap:<255,255>, sta:<7,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (4179) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (4199) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4199) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4229) wifi:connected with NETGEAR34, aid = 24, channel 7, BW20, bssid = 54:07:7d:17:86:5a[0m
+[0;32mI (4229) wifi:security: WPA2-PSK, phy: bgn, rssi: -23[0m
+[0;32mI (4239) wifi:pm start, type: 0[0m
+
+[0;32mI (4239) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4239) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (4289) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (4299) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (4849) wifi:<ba-add>idx:0 (ifx:0, 54:07:7d:17:86:5a), tid:0, ssn:0, winSize:64[0m
+[0;32mI (5139) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (5139) wifi:<ba-add>idx:0 (ifx:0, 54:07:7d:17:86:5a), tid:0, ssn:2, winSize:64[0m
+[0;32mI (6299) esp_netif_handlers: sta ip: 192.168.1.26, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (6299) ESP32_FIREBASE: ✅ Got IP: 192.168.1.26[0m
+[0;32mI (6299) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (6309) gpio: GPIO[6]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (6309) gpio: GPIO[7]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (6319) gpio: GPIO[15]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (6329) gpio: GPIO[16]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (6339) ESP32_FIREBASE: RFID: 04A3C2 | Answer: C | Emotion: 5[0m
+[1;31mE (6369) esp-tls-mbedtls: No server verification option set in esp_tls_cfg_t structure. Check esp_tls API reference[0m
+[1;31mE (6369) esp-tls-mbedtls: Failed to set client configurations, returned [0x8017] (ESP_ERR_MBEDTLS_SSL_SETUP_FAILED)[0m
+[1;31mE (6379) esp-tls: create_ssl_handle failed[0m
+[1;31mE (6379) esp-tls: Failed to open new connection[0m
+[1;31mE (6389) transport_base: Failed to open a new connection[0m
+[1;31mE (6389) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (6389) ESP32_FIREBASE: Failed to fetch prompt: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (6399) ESP32_FIREBASE: Using fallback prompt[0m
+[1;31mE (6419) esp-tls-mbedtls: No server verification option set in esp_tls_cfg_t structure. Check esp_tls API reference[0m
+[1;31mE (6419) esp-tls-mbedtls: Failed to set client configurations, returned [0x8017] (ESP_ERR_MBEDTLS_SSL_SETUP_FAILED)[0m
+[1;31mE (6429) esp-tls: create_ssl_handle failed[0m
+[1;31mE (6429) esp-tls: Failed to open new connection[0m
+[1;31mE (6429) transport_base: Failed to open a new connection[0m
+[1;31mE (6439) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (6439) ESP32_FIREBASE: ❌ Error sending data: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (6449) main_task: Returned from app_main()[0m

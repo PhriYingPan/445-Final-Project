@@ -1,0 +1,136 @@
+Command: ninja all
+[0/1] Re-running CMake...
+-- Minimal build - ON
+-- git rev-parse returned 'fatal: not a git repository (or any of the parent directories): .git'
+-- Could not use 'git describe' to determine PROJECT_VER.
+-- Building ESP-IDF components for target esp32s3
+-- Project sdkconfig file /Users/conanpan/esp/hello_world/sdkconfig
+-- Compiler supported targets: xtensa-esp-elf
+-- App "hello_world" version: 1
+-- Adding linker script /Users/conanpan/esp/hello_world/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script /Users/conanpan/esp/hello_world/build/esp-idf/esp_system/ld/sections.ld.in
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.api.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.bt_funcs.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.libgcc.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.wdt.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.version.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.libc.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.newlib.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/soc/esp32s3/ld/esp32s3.peripherals.ld
+-- Components: app_update bootloader bootloader_support cxx driver efuse esp-tls esp_app_format esp_bootloader_format esp_coex esp_common esp_driver_ana_cmpr esp_driver_dac esp_driver_gpio esp_driver_gptimer esp_driver_i2c esp_driver_i2s esp_driver_ledc esp_driver_mcpwm esp_driver_parlio esp_driver_pcnt esp_driver_rmt esp_driver_sdio esp_driver_sdm esp_driver_sdmmc esp_driver_sdspi esp_driver_spi esp_driver_tsens esp_driver_uart esp_driver_usb_serial_jtag esp_event esp_http_client esp_hw_support esp_mm esp_netif esp_netif_stack esp_partition esp_phy esp_pm esp_ringbuf esp_rom esp_security esp_system esp_timer esp_vfs_console esp_wifi esptool_py freertos hal heap http_parser json log lwip main mbedtls newlib nvs_flash partition_table pthread sdmmc soc spi_flash tcp_transport vfs wpa_supplicant xtensa
+-- Component paths: /Users/conanpan/esp/esp-idf/components/app_update /Users/conanpan/esp/esp-idf/components/bootloader /Users/conanpan/esp/esp-idf/components/bootloader_support /Users/conanpan/esp/esp-idf/components/cxx /Users/conanpan/esp/esp-idf/components/driver /Users/conanpan/esp/esp-idf/components/efuse /Users/conanpan/esp/esp-idf/components/esp-tls /Users/conanpan/esp/esp-idf/components/esp_app_format /Users/conanpan/esp/esp-idf/components/esp_bootloader_format /Users/conanpan/esp/esp-idf/components/esp_coex /Users/conanpan/esp/esp-idf/components/esp_common /Users/conanpan/esp/esp-idf/components/esp_driver_ana_cmpr /Users/conanpan/esp/esp-idf/components/esp_driver_dac /Users/conanpan/esp/esp-idf/components/esp_driver_gpio /Users/conanpan/esp/esp-idf/components/esp_driver_gptimer /Users/conanpan/esp/esp-idf/components/esp_driver_i2c /Users/conanpan/esp/esp-idf/components/esp_driver_i2s /Users/conanpan/esp/esp-idf/components/esp_driver_ledc /Users/conanpan/esp/esp-idf/components/esp_driver_mcpwm /Users/conanpan/esp/esp-idf/components/esp_driver_parlio /Users/conanpan/esp/esp-idf/components/esp_driver_pcnt /Users/conanpan/esp/esp-idf/components/esp_driver_rmt /Users/conanpan/esp/esp-idf/components/esp_driver_sdio /Users/conanpan/esp/esp-idf/components/esp_driver_sdm /Users/conanpan/esp/esp-idf/components/esp_driver_sdmmc /Users/conanpan/esp/esp-idf/components/esp_driver_sdspi /Users/conanpan/esp/esp-idf/components/esp_driver_spi /Users/conanpan/esp/esp-idf/components/esp_driver_tsens /Users/conanpan/esp/esp-idf/components/esp_driver_uart /Users/conanpan/esp/esp-idf/components/esp_driver_usb_serial_jtag /Users/conanpan/esp/esp-idf/components/esp_event /Users/conanpan/esp/esp-idf/components/esp_http_client /Users/conanpan/esp/esp-idf/components/esp_hw_support /Users/conanpan/esp/esp-idf/components/esp_mm /Users/conanpan/esp/esp-idf/components/esp_netif /Users/conanpan/esp/esp-idf/components/esp_netif_stack /Users/conanpan/esp/esp-idf/components/esp_partition /Users/conanpan/esp/esp-idf/components/esp_phy /Users/conanpan/esp/esp-idf/components/esp_pm /Users/conanpan/esp/esp-idf/components/esp_ringbuf /Users/conanpan/esp/esp-idf/components/esp_rom /Users/conanpan/esp/esp-idf/components/esp_security /Users/conanpan/esp/esp-idf/components/esp_system /Users/conanpan/esp/esp-idf/components/esp_timer /Users/conanpan/esp/esp-idf/components/esp_vfs_console /Users/conanpan/esp/esp-idf/components/esp_wifi /Users/conanpan/esp/esp-idf/components/esptool_py /Users/conanpan/esp/esp-idf/components/freertos /Users/conanpan/esp/esp-idf/components/hal /Users/conanpan/esp/esp-idf/components/heap /Users/conanpan/esp/esp-idf/components/http_parser /Users/conanpan/esp/esp-idf/components/json /Users/conanpan/esp/esp-idf/components/log /Users/conanpan/esp/esp-idf/components/lwip /Users/conanpan/esp/hello_world/main /Users/conanpan/esp/esp-idf/components/mbedtls /Users/conanpan/esp/esp-idf/components/newlib /Users/conanpan/esp/esp-idf/components/nvs_flash /Users/conanpan/esp/esp-idf/components/partition_table /Users/conanpan/esp/esp-idf/components/pthread /Users/conanpan/esp/esp-idf/components/sdmmc /Users/conanpan/esp/esp-idf/components/soc /Users/conanpan/esp/esp-idf/components/spi_flash /Users/conanpan/esp/esp-idf/components/tcp_transport /Users/conanpan/esp/esp-idf/components/vfs /Users/conanpan/esp/esp-idf/components/wpa_supplicant /Users/conanpan/esp/esp-idf/components/xtensa
+-- Configuring done (2.7s)
+-- Generating done (0.3s)
+-- Build files have been written to: /Users/conanpan/esp/hello_world/build
+[1/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/hello_world_main.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/hello_world_main.c.obj 
+/Users/conanpan/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc -DESP_PLATFORM -DIDF_VER=\"v5.5-dev-2290-g94cfe394fe\" -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/Users/conanpan/esp/hello_world/build/config -I/Users/conanpan/esp/hello_world/main -I/Users/conanpan/esp/esp-idf/components/newlib/platform_include -I/Users/conanpan/esp/esp-idf/components/freertos/config/include -I/Users/conanpan/esp/esp-idf/components/freertos/config/include/freertos -I/Users/conanpan/esp/esp-idf/components/freertos/config/xtensa/include -I/Users/conanpan/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/Users/conanpan/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/Users/conanpan/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/Users/conanpan/esp/esp-idf/components/freertos/esp_additions/include -I/Users/conanpan/esp/esp-idf/components/esp_hw_support/include -I/Users/conanpan/esp/esp-idf/components/esp_hw_support/include/soc -I/Users/conanpan/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/Users/conanpan/esp/esp-idf/components/esp_hw_support/dma/include -I/Users/conanpan/esp/esp-idf/components/esp_hw_support/ldo/include -I/Users/conanpan/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/Users/conanpan/esp/esp-idf/components/esp_hw_support/mspi_timing_tuning/include -I/Users/conanpan/esp/esp-idf/components/esp_hw_support/power_supply/include -I/Users/conanpan/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/Users/conanpan/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/Users/conanpan/esp/esp-idf/components/esp_hw_support/mspi_timing_tuning/port/esp32s3/. -I/Users/conanpan/esp/esp-idf/components/esp_hw_support/mspi_timing_tuning/port/esp32s3/include -I/Users/conanpan/esp/esp-idf/components/heap/include -I/Users/conanpan/esp/esp-idf/components/heap/tlsf -I/Users/conanpan/esp/esp-idf/components/log/include -I/Users/conanpan/esp/esp-idf/components/soc/include -I/Users/conanpan/esp/esp-idf/components/soc/esp32s3 -I/Users/conanpan/esp/esp-idf/components/soc/esp32s3/include -I/Users/conanpan/esp/esp-idf/components/soc/esp32s3/register -I/Users/conanpan/esp/esp-idf/components/hal/platform_port/include -I/Users/conanpan/esp/esp-idf/components/hal/esp32s3/include -I/Users/conanpan/esp/esp-idf/components/hal/include -I/Users/conanpan/esp/esp-idf/components/esp_rom/include -I/Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/include -I/Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3 -I/Users/conanpan/esp/esp-idf/components/esp_common/include -I/Users/conanpan/esp/esp-idf/components/esp_system/include -I/Users/conanpan/esp/esp-idf/components/esp_system/port/soc -I/Users/conanpan/esp/esp-idf/components/esp_system/port/include/private -I/Users/conanpan/esp/esp-idf/components/xtensa/esp32s3/include -I/Users/conanpan/esp/esp-idf/components/xtensa/include -I/Users/conanpan/esp/esp-idf/components/xtensa/deprecated_include -I/Users/conanpan/esp/esp-idf/components/lwip/include -I/Users/conanpan/esp/esp-idf/components/lwip/include/apps -I/Users/conanpan/esp/esp-idf/components/lwip/include/apps/sntp -I/Users/conanpan/esp/esp-idf/components/lwip/lwip/src/include -I/Users/conanpan/esp/esp-idf/components/lwip/port/include -I/Users/conanpan/esp/esp-idf/components/lwip/port/freertos/include -I/Users/conanpan/esp/esp-idf/components/lwip/port/esp32xx/include -I/Users/conanpan/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/Users/conanpan/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/Users/conanpan/esp/esp-idf/components/esp_http_client/include -I/Users/conanpan/esp/esp-idf/components/esp_event/include -I/Users/conanpan/esp/esp-idf/components/nvs_flash/include -I/Users/conanpan/esp/esp-idf/components/esp_partition/include -I/Users/conanpan/esp/esp-idf/components/esp_wifi/include -I/Users/conanpan/esp/esp-idf/components/esp_wifi/include/local -I/Users/conanpan/esp/esp-idf/components/esp_wifi/wifi_apps/include -I/Users/conanpan/esp/esp-idf/components/esp_wifi/wifi_apps/nan_app/include -I/Users/conanpan/esp/esp-idf/components/esp_phy/include -I/Users/conanpan/esp/esp-idf/components/esp_phy/esp32s3/include -I/Users/conanpan/esp/esp-idf/components/esp_netif/include -I/Users/conanpan/esp/esp-idf/components/json/cJSON -I/Users/conanpan/esp/esp-idf/components/driver/deprecated -I/Users/conanpan/esp/esp-idf/components/driver/i2c/include -I/Users/conanpan/esp/esp-idf/components/driver/touch_sensor/include -I/Users/conanpan/esp/esp-idf/components/driver/twai/include -I/Users/conanpan/esp/esp-idf/components/driver/touch_sensor/esp32s3/include -I/Users/conanpan/esp/esp-idf/components/esp_pm/include -I/Users/conanpan/esp/esp-idf/components/esp_ringbuf/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_gpio/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_pcnt/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_gptimer/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_spi/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_mcpwm/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_ana_cmpr/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_i2s/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_sdmmc/include -I/Users/conanpan/esp/esp-idf/components/sdmmc/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_sdspi/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_sdio/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_dac/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_rmt/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_tsens/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_sdm/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_i2c/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_uart/include -I/Users/conanpan/esp/esp-idf/components/vfs/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_ledc/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_parlio/include -I/Users/conanpan/esp/esp-idf/components/esp_driver_usb_serial_jtag/include -I/Users/conanpan/esp/esp-idf/components/mbedtls/port/include -I/Users/conanpan/esp/esp-idf/components/mbedtls/mbedtls/include -I/Users/conanpan/esp/esp-idf/components/mbedtls/mbedtls/library -I/Users/conanpan/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/Users/conanpan/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include -I/Users/conanpan/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m -I/Users/conanpan/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=/Users/conanpan/esp/hello_world=. -fmacro-prefix-map=/Users/conanpan/esp/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/hello_world_main.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/hello_world_main.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/hello_world_main.c.obj -c /Users/conanpan/esp/hello_world/main/hello_world_main.c
+In file included from /Users/conanpan/esp/hello_world/main/hello_world_main.c:46:
+/Users/conanpan/esp/hello_world/main/hello_world_main.c: In function 'fetch_current_prompt':
+/Users/conanpan/esp/hello_world/main/hello_world_main.c:238:39: error: too few arguments to function 'esp_http_client_get_header'
+  238 |     ESP_LOGI(TAG, "Content-Type: %s", esp_http_client_get_header(client, "Content-Type"));
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/esp-idf/components/log/include/esp_log.h:218:167: note: in definition of macro 'ESP_LOG_LEVEL'
+  218 |         if (ESP_LOG_GET_LEVEL(configs)==ESP_LOG_ERROR)        { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_ERROR),   tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                                                       ^~~~~~~~~~~
+/Users/conanpan/esp/esp-idf/components/log/include/esp_log.h:125:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  125 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/hello_world/main/hello_world_main.c:238:5: note: in expansion of macro 'ESP_LOGI'
+  238 |     ESP_LOGI(TAG, "Content-Type: %s", esp_http_client_get_header(client, "Content-Type"));
+      |     ^~~~~~~~
+In file included from /Users/conanpan/esp/hello_world/main/hello_world_main.c:47:
+/Users/conanpan/esp/esp-idf/components/esp_http_client/include/esp_http_client.h:363:11: note: declared here
+  363 | esp_err_t esp_http_client_get_header(esp_http_client_handle_t client, const char *key, char **value);
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/hello_world/main/hello_world_main.c:238:39: error: too few arguments to function 'esp_http_client_get_header'
+  238 |     ESP_LOGI(TAG, "Content-Type: %s", esp_http_client_get_header(client, "Content-Type"));
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/esp-idf/components/log/include/esp_log.h:219:167: note: in definition of macro 'ESP_LOG_LEVEL'
+  219 |         else if (ESP_LOG_GET_LEVEL(configs)==ESP_LOG_WARN)    { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_WARN),    tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                                                       ^~~~~~~~~~~
+/Users/conanpan/esp/esp-idf/components/log/include/esp_log.h:125:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  125 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/hello_world/main/hello_world_main.c:238:5: note: in expansion of macro 'ESP_LOGI'
+  238 |     ESP_LOGI(TAG, "Content-Type: %s", esp_http_client_get_header(client, "Content-Type"));
+      |     ^~~~~~~~
+/Users/conanpan/esp/esp-idf/components/esp_http_client/include/esp_http_client.h:363:11: note: declared here
+  363 | esp_err_t esp_http_client_get_header(esp_http_client_handle_t client, const char *key, char **value);
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/hello_world/main/hello_world_main.c:238:39: error: too few arguments to function 'esp_http_client_get_header'
+  238 |     ESP_LOGI(TAG, "Content-Type: %s", esp_http_client_get_header(client, "Content-Type"));
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/esp-idf/components/log/include/esp_log.h:220:167: note: in definition of macro 'ESP_LOG_LEVEL'
+  220 |         else if (ESP_LOG_GET_LEVEL(configs)==ESP_LOG_DEBUG)   { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_DEBUG),   tag, LOG_FORMAT(D, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                                                       ^~~~~~~~~~~
+/Users/conanpan/esp/esp-idf/components/log/include/esp_log.h:125:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  125 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/hello_world/main/hello_world_main.c:238:5: note: in expansion of macro 'ESP_LOGI'
+  238 |     ESP_LOGI(TAG, "Content-Type: %s", esp_http_client_get_header(client, "Content-Type"));
+      |     ^~~~~~~~
+/Users/conanpan/esp/esp-idf/components/esp_http_client/include/esp_http_client.h:363:11: note: declared here
+  363 | esp_err_t esp_http_client_get_header(esp_http_client_handle_t client, const char *key, char **value);
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/hello_world/main/hello_world_main.c:238:39: error: too few arguments to function 'esp_http_client_get_header'
+  238 |     ESP_LOGI(TAG, "Content-Type: %s", esp_http_client_get_header(client, "Content-Type"));
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/esp-idf/components/log/include/esp_log.h:221:167: note: in definition of macro 'ESP_LOG_LEVEL'
+  221 |         else if (ESP_LOG_GET_LEVEL(configs)==ESP_LOG_VERBOSE) { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_VERBOSE), tag, LOG_FORMAT(V, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                                                       ^~~~~~~~~~~
+/Users/conanpan/esp/esp-idf/components/log/include/esp_log.h:125:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  125 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/hello_world/main/hello_world_main.c:238:5: note: in expansion of macro 'ESP_LOGI'
+  238 |     ESP_LOGI(TAG, "Content-Type: %s", esp_http_client_get_header(client, "Content-Type"));
+      |     ^~~~~~~~
+/Users/conanpan/esp/esp-idf/components/esp_http_client/include/esp_http_client.h:363:11: note: declared here
+  363 | esp_err_t esp_http_client_get_header(esp_http_client_handle_t client, const char *key, char **value);
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/hello_world/main/hello_world_main.c:238:39: error: too few arguments to function 'esp_http_client_get_header'
+  238 |     ESP_LOGI(TAG, "Content-Type: %s", esp_http_client_get_header(client, "Content-Type"));
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/esp-idf/components/log/include/esp_log.h:222:167: note: in definition of macro 'ESP_LOG_LEVEL'
+  222 |         else                                                  { esp_log(ESP_LOG_CONFIG_INIT(ESP_LOG_INFO),    tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                                                       ^~~~~~~~~~~
+/Users/conanpan/esp/esp-idf/components/log/include/esp_log.h:125:41: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  125 | #define ESP_LOGI(tag, format, ...) do { ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO, tag, format, ##__VA_ARGS__); } while(0)
+      |                                         ^~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/hello_world/main/hello_world_main.c:238:5: note: in expansion of macro 'ESP_LOGI'
+  238 |     ESP_LOGI(TAG, "Content-Type: %s", esp_http_client_get_header(client, "Content-Type"));
+      |     ^~~~~~~~
+/Users/conanpan/esp/esp-idf/components/esp_http_client/include/esp_http_client.h:363:11: note: declared here
+  363 | esp_err_t esp_http_client_get_header(esp_http_client_handle_t client, const char *key, char **value);
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/conanpan/esp/hello_world/main/hello_world_main.c: At top level:
+/Users/conanpan/esp/hello_world/main/hello_world_main.c:177:13: warning: 'detect_answer_button' defined but not used [-Wunused-function]
+  177 | static char detect_answer_button(void)
+      |             ^~~~~~~~~~~~~~~~~~~~
+[2/10] Performing build step for 'bootloader'
+[0/1] Re-running CMake...
+-- Minimal build - OFF
+-- Building ESP-IDF components for target esp32s3
+-- Project sdkconfig file /Users/conanpan/esp/hello_world/sdkconfig
+-- Compiler supported targets: xtensa-esp-elf
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/soc/esp32s3/ld/esp32s3.peripherals.ld
+-- Bootloader project name: "bootloader" version: 1
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.api.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.bt_funcs.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.libgcc.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.wdt.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.version.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.libc.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.newlib.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/bootloader/subproject/main/ld/esp32s3/bootloader.ld
+-- Adding linker script /Users/conanpan/esp/esp-idf/components/bootloader/subproject/main/ld/esp32s3/bootloader.rom.ld
+-- Components: bootloader bootloader_support efuse esp_app_format esp_bootloader_format esp_common esp_hw_support esp_rom esp_security esp_system esptool_py freertos hal log main micro-ecc newlib partition_table soc spi_flash xtensa
+-- Component paths: /Users/conanpan/esp/esp-idf/components/bootloader /Users/conanpan/esp/esp-idf/components/bootloader_support /Users/conanpan/esp/esp-idf/components/efuse /Users/conanpan/esp/esp-idf/components/esp_app_format /Users/conanpan/esp/esp-idf/components/esp_bootloader_format /Users/conanpan/esp/esp-idf/components/esp_common /Users/conanpan/esp/esp-idf/components/esp_hw_support /Users/conanpan/esp/esp-idf/components/esp_rom /Users/conanpan/esp/esp-idf/components/esp_security /Users/conanpan/esp/esp-idf/components/esp_system /Users/conanpan/esp/esp-idf/components/esptool_py /Users/conanpan/esp/esp-idf/components/freertos /Users/conanpan/esp/esp-idf/components/hal /Users/conanpan/esp/esp-idf/components/log /Users/conanpan/esp/esp-idf/components/bootloader/subproject/main /Users/conanpan/esp/esp-idf/components/bootloader/subproject/components/micro-ecc /Users/conanpan/esp/esp-idf/components/newlib /Users/conanpan/esp/esp-idf/components/partition_table /Users/conanpan/esp/esp-idf/components/soc /Users/conanpan/esp/esp-idf/components/spi_flash /Users/conanpan/esp/esp-idf/components/xtensa
+-- Configuring done (1.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/conanpan/esp/hello_world/build/bootloader
+[1/2] cd /Users/conanpan/esp/hello_world/build/bootloader/esp-idf/esptool_py && /Users/conanpan/.espressif/python_env/idf5.5_py3.10_env/bin/python /Users/conanpan/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /Users/conanpan/esp/hello_world/build/bootloader/bootloader.bin
+Bootloader binary size 0x52b0 bytes. 0x2d50 bytes (35%) free.
+ninja: build stopped: subcommand failed.

@@ -1,0 +1,13 @@
+Command: /Users/conanpan/.espressif/python_env/idf5.5_py3.10_env/bin/python /Users/conanpan/esp/esp-idf/tools/idf_monitor.py -p /dev/tty.usbmodem1101 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /Users/conanpan/esp/hello_world/build/hello_world.elf /Users/conanpan/esp/hello_world/build/bootloader/bootloader.elf -m '/Users/conanpan/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/Users/conanpan/esp/esp-idf/tools/idf.py' '-p' '/dev/tty.usbmodem1101'
+[0;33m--- Warning: Serial ports accessed as /dev/tty.* will hang gdb if launched.[0m
+[0;33m--- Using /dev/cu.usbmodem1101 instead...[0m
+[0;33m--- esp-idf-monitor 1.6.0 on /dev/cu.usbmodem1101 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x4205659f: mpi_ll_get_int_status at /Users/conanpan/esp/esp-idf/components/hal/esp32s3/include/hal/mpi_ll.h:95
+---  (inlined by) mpi_hal_wait_op_complete at /Users/conanpan/esp/esp-idf/components/hal/mpi_hal.c:114
+[0m
+[0;33m--- 0x403c8700: _stext at ??:?
+[0m
+[0;33m--- 0x403c8924: call_start_cpu0 at /Users/conanpan/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:25
+[0m
+[0m

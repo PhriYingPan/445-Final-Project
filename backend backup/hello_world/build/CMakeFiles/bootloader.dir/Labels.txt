@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/Users/conanpan/esp/hello_world/build/CMakeFiles/bootloader
+/Users/conanpan/esp/hello_world/build/CMakeFiles/bootloader.rule
+/Users/conanpan/esp/hello_world/build/CMakeFiles/bootloader-complete.rule
+/Users/conanpan/esp/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/Users/conanpan/esp/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/Users/conanpan/esp/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/Users/conanpan/esp/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/Users/conanpan/esp/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/Users/conanpan/esp/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/Users/conanpan/esp/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
