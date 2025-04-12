@@ -16,7 +16,7 @@ import { Bar } from 'react-chartjs-2';
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const SUBJECTS = ['Math', 'Science', 'Social Studies', 'English'];
-const CHOICES = ['A', 'B', 'C', 'D'];
+const CHOICES = ['A', 'B', 'C', 'D', 'E'];
 
 const StudentDashboard = () => {
   const studentId = 'student1';
