@@ -18,6 +18,23 @@ ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 const SUBJECTS = ['Math', 'Science', 'Social Studies', 'English'];
 const CHOICES = ['A', 'B', 'C', 'D', 'E'];
 
+// Format any epoch (s or ms) into "Apr 23 2025, 04:17:00 PM" (Chicago)
+const formatTimestamp = (raw) => {
+  if (raw == null) return '-';
+  const n = Number(raw);
+  const ms = n > 1e12 ? n : n * 1000; // seconds ➜ ms
+  return new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago',
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+  }).format(new Date(ms));
+};
+
 const StudentDashboard = () => {
   const studentId = 'student1';
 
@@ -37,45 +54,52 @@ const StudentDashboard = () => {
   const [teacherSubject, setTeacherSubject] = useState('Math');
   const [teacherCorrectAnswer, setTeacherCorrectAnswer] = useState('A');
 
+  /* ------------------------------------------------------------------ */
+  /*  Firebase listeners                                                 */
+  /* ------------------------------------------------------------------ */
   useEffect(() => {
     const rfidRef = ref(database, `students/${studentId}/rfid`);
     const nameRef = ref(database, `students/${studentId}/name`);
-    const emotionRef = ref(database, `students/${studentId}/emotion`);
     const promptRef = ref(database, 'currentPrompt');
     const responsesRef = ref(database, `students/${studentId}/responses`);
 
+    // RFID + student name
     onValue(rfidRef, (snap) => setRfid(snap.val() || ''));
     onValue(nameRef, (snap) => setStudentName(snap.val() || ''));
-    onValue(emotionRef, (snap) => {
-      const val = snap.val();
-      setEmotionValue(val?.value || 5);
-    });
 
+    // Current prompt (shared with teacher controls)
     onValue(promptRef, (snap) => {
-      const val = snap.val();
-      setSharedPrompt(val || { question: '', subject: 'Math', correctAnswer: 'A' });
-      setTeacherPromptInput(val?.question || '');
-      setTeacherSubject(val?.subject || 'Math');
-      setTeacherCorrectAnswer(val?.correctAnswer || 'A');
+      const val = snap.val() || {};
+      setSharedPrompt({
+        question: val.question ?? '',
+        subject: val.subject ?? 'Math',
+        correctAnswer: val.correctAnswer ?? 'A',
+      });
+      setTeacherPromptInput(val.question ?? '');
+      setTeacherSubject(val.subject ?? 'Math');
+      setTeacherCorrectAnswer(val.correctAnswer ?? 'A');
     });
 
+    // Response history + latest emotion
     onValue(responsesRef, (snap) => {
       const val = snap.val();
       if (val) {
-        const entries = Object.entries(val).map(([id, data]) => ({
-          id,
-          ...data,
-        }));
+        const entries = Object.entries(val).map(([id, data]) => ({ id, ...data }));
         entries.sort((a, b) => b.timestamp - a.timestamp);
         setResponseHistory(entries);
         setLatestResponse(entries[0]);
+        setEmotionValue(entries[0]?.emotion ?? 5);
       } else {
         setResponseHistory([]);
         setLatestResponse(null);
+        setEmotionValue(5);
       }
     });
   }, []);
 
+  /* ------------------------------------------------------------------ */
+  /*  Teacher prompt update                                              */
+  /* ------------------------------------------------------------------ */
   const updatePrompt = () => {
     const promptRef = ref(database, 'currentPrompt');
     set(promptRef, {
@@ -85,58 +109,48 @@ const StudentDashboard = () => {
     });
   };
 
+  /* ------------------------------------------------------------------ */
+  /*  Chart helpers                                                      */
+  /* ------------------------------------------------------------------ */
   const getCorrectnessChartData = () => {
-    const labels = SUBJECTS;
     const data = SUBJECTS.map((subject) => {
       const filtered = responseHistory.filter((r) => r.subject === subject);
       const total = filtered.length;
       const correct = filtered.filter((r) => r.isCorrect).length;
-      return total > 0 ? (correct / total) * 100 : 0;
+      return total ? (correct / total) * 100 : 0;
     });
-
     return {
-      labels,
-      datasets: [
-        {
-          label: 'Correctness Rate (%)',
-          data,
-          backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        },
-      ],
+      labels: SUBJECTS,
+      datasets: [{ label: 'Correctness Rate (%)', data, backgroundColor: 'rgba(75, 192, 192, 0.6)' }],
     };
   };
 
   const getEmotionChartData = () => {
-    const labels = SUBJECTS;
     const data = SUBJECTS.map((subject) => {
       const filtered = responseHistory.filter((r) => r.subject === subject);
       const total = filtered.length;
-      return total > 0
-        ? filtered.reduce((sum, r) => sum + (r.emotion || 0), 0) / total
-        : 0;
+      return total ? filtered.reduce((sum, r) => sum + (r.emotion || 0), 0) / total : 0;
     });
-
     return {
-      labels,
-      datasets: [
-        {
-          label: 'Average Emotion',
-          data,
-          backgroundColor: 'rgba(255, 159, 64, 0.6)',
-        },
-      ],
+      labels: SUBJECTS,
+      datasets: [{ label: 'Average Emotion', data, backgroundColor: 'rgba(255, 159, 64, 0.6)' }],
     };
   };
 
+  /* ------------------------------------------------------------------ */
+  /*  Render                                                             */
+  /* ------------------------------------------------------------------ */
   return (
     <div className="dashboard">
       <h2>Desk Dashboard</h2>
 
+      {/* Student info */}
       <div className="section">
         <p className="info"><strong>RFID:</strong> {rfid || 'Waiting for scan...'}</p>
         <p className="info"><strong>Student:</strong> {studentName || '-'}</p>
       </div>
 
+      {/* Live emotion bar */}
       <div className="section">
         <label><strong>Emotion Level:</strong></label>
         <div style={{ backgroundColor: '#eee', height: '10px', borderRadius: '5px', width: '100%' }}>
@@ -145,23 +159,21 @@ const StudentDashboard = () => {
               width: `${(emotionValue / 10) * 100}%`,
               backgroundColor: '#36a2eb',
               height: '100%',
-              borderRadius: '5px'
+              borderRadius: '5px',
             }}
           />
         </div>
         <p className="info">Value: {emotionValue}</p>
       </div>
 
+      {/* Latest answer */}
       <div className="section">
         <label><strong>Latest Answer:</strong></label>
         {latestResponse ? (
           <>
-            <p className="info">
-              Answer: <strong>{latestResponse.selectedAnswer}</strong>
-            </p>
-            <p className="info">
-              Correct Answer: <strong>{latestResponse.correctAnswer}</strong>
-            </p>
+            <p className="info">Answer: <strong>{latestResponse.selectedAnswer}</strong></p>
+            <p className="info">Correct Answer: <strong>{latestResponse.correctAnswer}</strong></p>
+            <p className="info">Emotion: <strong>{latestResponse.emotion}</strong></p>
             <p className="info" style={{ color: latestResponse.isCorrect ? 'green' : 'red' }}>
               {latestResponse.isCorrect ? '✅ Correct' : '❌ Incorrect'}
             </p>
@@ -171,40 +183,33 @@ const StudentDashboard = () => {
         )}
       </div>
 
+      {/* Current prompt */}
       <div className="section">
         <p className="info"><strong>Current Prompt:</strong> {sharedPrompt.question}</p>
         <p className="info"><strong>Subject:</strong> {sharedPrompt.subject}</p>
         <p className="info"><strong>Correct Answer:</strong> {sharedPrompt.correctAnswer}</p>
       </div>
 
+      {/* Teacher controls */}
       <div className="section">
         <h3>Teacher: Set Prompt</h3>
         <label>Prompt:</label>
-        <input
-          type="text"
-          value={teacherPromptInput}
-          onChange={(e) => setTeacherPromptInput(e.target.value)}
-        />
+        <input type="text" value={teacherPromptInput} onChange={(e) => setTeacherPromptInput(e.target.value)} />
 
         <label>Subject:</label>
         <select value={teacherSubject} onChange={(e) => setTeacherSubject(e.target.value)}>
-          {SUBJECTS.map((subj) => (
-            <option key={subj} value={subj}>{subj}</option>
-          ))}
+          {SUBJECTS.map((subj) => <option key={subj} value={subj}>{subj}</option>)}
         </select>
 
         <label>Correct Answer:</label>
         <select value={teacherCorrectAnswer} onChange={(e) => setTeacherCorrectAnswer(e.target.value)}>
-          {CHOICES.map((ch) => (
-            <option key={ch} value={ch}>{ch}</option>
-          ))}
+          {CHOICES.map((ch) => <option key={ch} value={ch}>{ch}</option>)}
         </select>
 
-        <button onClick={updatePrompt} style={{ marginTop: '10px' }}>
-          Update Prompt
-        </button>
+        <button onClick={updatePrompt} style={{ marginTop: '10px' }}>Update Prompt</button>
       </div>
 
+      {/* Response history */}
       <div className="section">
         <h3>Response History</h3>
         {responseHistory.length === 0 ? (
@@ -223,13 +228,11 @@ const StudentDashboard = () => {
             <tbody>
               {responseHistory.map((r) => (
                 <tr key={r.id}>
-                  <td>{new Date(r.timestamp * 1000).toLocaleTimeString()}</td>
+                  <td>{formatTimestamp(r.timestamp)}</td>
                   <td>{r.question}</td>
                   <td>{r.subject}</td>
                   <td>{r.emotion}</td>
-                  <td style={{ color: r.isCorrect ? 'green' : 'red' }}>
-                    {r.isCorrect ? '✅' : '❌'}
-                  </td>
+                  <td style={{ color: r.isCorrect ? 'green' : 'red' }}>{r.isCorrect ? '✅' : '❌'}</td>
                 </tr>
               ))}
             </tbody>
@@ -237,6 +240,7 @@ const StudentDashboard = () => {
         )}
       </div>
 
+      {/* Charts */}
       <div className="section">
         <h3>Correctness by Subject</h3>
         <Bar data={getCorrectnessChartData()} options={{ responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }} />
