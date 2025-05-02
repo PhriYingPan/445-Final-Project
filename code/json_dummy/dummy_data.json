@@ -1,0 +1,201 @@
+{
+  "currentPrompt": {
+    "question": "Which fraction is smallest?",
+    "subject": "Math",
+    "correctAnswer": "C"
+  },
+  "students": {
+    "student1": {
+      "rfid": "04A3C2",
+      "name": "Ethan G.",
+      "emotion": {
+        "value": 7
+      },
+      "comprehension": {
+        "value": 4
+      },
+      "responses": {
+        "1712161000": {
+          "timestamp": 1712161000,
+          "emotion": 2,
+          "selectedAnswer": "E",
+          "correctAnswer": "C",
+          "isCorrect": false,
+          "question": "What is 9 + 10?",
+          "subject": "Math"
+        },
+        "1712160942": {
+          "timestamp": 1712160942,
+          "emotion": 8,
+          "selectedAnswer": "C",
+          "correctAnswer": "C",
+          "isCorrect": true,
+          "question": "Which planet is called the Red Planet?",
+          "subject": "Science"
+        },
+        "1712160891": {
+          "timestamp": 1712160891,
+          "emotion": 6,
+          "selectedAnswer": "A",
+          "correctAnswer": "B",
+          "isCorrect": false,
+          "question": "True or false: Water freezes at 0°C.",
+          "subject": "Science"
+        },
+        "1712160807": {
+          "timestamp": 1712160807,
+          "emotion": 9,
+          "selectedAnswer": "D",
+          "correctAnswer": "D",
+          "isCorrect": true,
+          "question": "The Declaration of Independence was signed in what year?",
+          "subject": "Social Studies"
+        },
+        "1712160723": {
+          "timestamp": 1712160723,
+          "emotion": 1,
+          "selectedAnswer": "B",
+          "correctAnswer": "A",
+          "isCorrect": false,
+          "question": "Identify the subject in: 'Birds fly.'",
+          "subject": "English"
+        },
+        "1712160655": {
+          "timestamp": 1712160655,
+          "emotion": 7,
+          "selectedAnswer": "E",
+          "correctAnswer": "A",
+          "isCorrect": false,
+          "question": "What is 12 × 12?",
+          "subject": "Math"
+        },
+        "1712160555": {
+          "timestamp": 1712160555,
+          "emotion": 5,
+          "selectedAnswer": "B",
+          "correctAnswer": "B",
+          "isCorrect": true,
+          "question": "Who wrote '1984'?",
+          "subject": "English"
+        },
+        "1712160499": {
+          "timestamp": 1712160499,
+          "emotion": 3,
+          "selectedAnswer": "D",
+          "correctAnswer": "C",
+          "isCorrect": false,
+          "question": "What is the chemical symbol for gold?",
+          "subject": "Science"
+        },
+        "1712160420": {
+          "timestamp": 1712160420,
+          "emotion": 10,
+          "selectedAnswer": "A",
+          "correctAnswer": "A",
+          "isCorrect": true,
+          "question": "Which fraction is smallest?",
+          "subject": "Math"
+        },
+        "1712160350": {
+          "timestamp": 1712160350,
+          "emotion": 4,
+          "selectedAnswer": "C",
+          "correctAnswer": "D",
+          "isCorrect": false,
+          "question": "True or false: The earth is flat.",
+          "subject": "Social Studies"
+        },
+        "1712160288": {
+          "timestamp": 1712160288,
+          "emotion": 6,
+          "selectedAnswer": "E",
+          "correctAnswer": "B",
+          "isCorrect": false,
+          "question": "Define a noun.",
+          "subject": "English"
+        },
+        "1712160201": {
+          "timestamp": 1712160201,
+          "emotion": 9,
+          "selectedAnswer": "D",
+          "correctAnswer": "D",
+          "isCorrect": true,
+          "question": "What is 100 ÷ 5?",
+          "subject": "Math"
+        },
+        "1712160150": {
+          "timestamp": 1712160150,
+          "emotion": 2,
+          "selectedAnswer": "B",
+          "correctAnswer": "B",
+          "isCorrect": true,
+          "question": "Which amendment gives the right to bear arms?",
+          "subject": "Social Studies"
+        },
+        "1712160083": {
+          "timestamp": 1712160083,
+          "emotion": 7,
+          "selectedAnswer": "C",
+          "correctAnswer": "A",
+          "isCorrect": false,
+          "question": "What gas do humans exhale?",
+          "subject": "Science"
+        },
+        "1712160022": {
+          "timestamp": 1712160022,
+          "emotion": 8,
+          "selectedAnswer": "A",
+          "correctAnswer": "A",
+          "isCorrect": true,
+          "question": "What is the past tense of 'swim'?",
+          "subject": "English"
+        },
+        "1712159955": {
+          "timestamp": 1712159955,
+          "emotion": 5,
+          "selectedAnswer": "D",
+          "correctAnswer": "C",
+          "isCorrect": false,
+          "question": "Solve: 7 × 7 = ?",
+          "subject": "Math"
+        },
+        "1712159900": {
+          "timestamp": 1712159900,
+          "emotion": 3,
+          "selectedAnswer": "B",
+          "correctAnswer": "B",
+          "isCorrect": true,
+          "question": "Which planet has rings?",
+          "subject": "Science"
+        },
+        "1712159830": {
+          "timestamp": 1712159830,
+          "emotion": 1,
+          "selectedAnswer": "E",
+          "correctAnswer": "D",
+          "isCorrect": false,
+          "question": "Who discovered penicillin?",
+          "subject": "Science"
+        },
+        "1712159787": {
+          "timestamp": 1712159787,
+          "emotion": 9,
+          "selectedAnswer": "A",
+          "correctAnswer": "A",
+          "isCorrect": true,
+          "question": "What is 15 − 6?",
+          "subject": "Math"
+        },
+        "1712159700": {
+          "timestamp": 1712159700,
+          "emotion": 4,
+          "selectedAnswer": "C",
+          "correctAnswer": "C",
+          "isCorrect": true,
+          "question": "True or false: Lightning never strikes the same place twice.",
+          "subject": "Science"
+        }
+      }
+    }
+  }
+}

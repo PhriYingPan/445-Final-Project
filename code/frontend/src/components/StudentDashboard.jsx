@@ -15,18 +15,14 @@ import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-/* ----------------------------- Constants ----------------------------- */
 const SUBJECTS = ['Math', 'Science', 'Social Studies', 'English'];
 const RAISE_HAND_CODE = 'E';
 const ANSWER_CHOICES = ['A', 'B', 'C', 'D'];
 
-/* ---------------------------------------------------------------------
-   Format any epoch (s or ms) into "Apr 23 2025, 04:17:00 PM" (Chicago)
------------------------------------------------------------------------- */
 const formatTimestamp = (raw) => {
   if (raw == null) return '-';
   const n = Number(raw);
-  const ms = n > 1e12 ? n : n * 1000; // seconds ➜ ms
+  const ms = n > 1e12 ? n : n * 1000;
   return new Intl.DateTimeFormat('en-US', {
     timeZone: 'America/Chicago',
     year: 'numeric',
@@ -39,9 +35,7 @@ const formatTimestamp = (raw) => {
   }).format(new Date(ms));
 };
 
-/* =========================== React Component ========================= */
 const StudentDashboard = () => {
-  /* --------------------------- Local state --------------------------- */
   const studentId = 'student1';
 
   const [rfid, setRfid] = useState('');
@@ -57,23 +51,19 @@ const StudentDashboard = () => {
     correctAnswer: 'A',
   });
 
-  // Teacher-side inputs
   const [teacherPromptInput, setTeacherPromptInput] = useState('');
   const [teacherSubject, setTeacherSubject] = useState('Math');
   const [teacherCorrectAnswer, setTeacherCorrectAnswer] = useState('A');
 
-  /* ------------------------- Firebase listeners ---------------------- */
   useEffect(() => {
     const rfidRef = ref(database, `students/${studentId}/rfid`);
     const nameRef = ref(database, `students/${studentId}/name`);
     const promptRef = ref(database, 'currentPrompt');
     const responsesRef = ref(database, `students/${studentId}/responses`);
 
-    // RFID + student name
     onValue(rfidRef, (snap) => setRfid(snap.val() || ''));
     onValue(nameRef, (snap) => setStudentName(snap.val() || ''));
 
-    // Current prompt (shared with teacher controls)
     onValue(promptRef, (snap) => {
       const val = snap.val() || {};
       setSharedPrompt({
@@ -86,7 +76,6 @@ const StudentDashboard = () => {
       setTeacherCorrectAnswer(val.correctAnswer ?? 'A');
     });
 
-    // Response history + latest emotion + latest raise-hand
     onValue(responsesRef, (snap) => {
       const val = snap.val();
       if (!val) {
@@ -101,17 +90,14 @@ const StudentDashboard = () => {
       entries.sort((a, b) => b.timestamp - a.timestamp);
       setResponseHistory(entries);
 
-      // Latest overall event (could be raise-hand or answer)
       setLatestResponse(entries[0]);
       setEmotionValue(entries[0]?.emotion ?? 5);
 
-      // Find the most recent raise-hand event, if any
       const raiseEntry = entries.find((e) => e.selectedAnswer === RAISE_HAND_CODE);
       setLastRaiseHand(raiseEntry || null);
     });
   }, []);
 
-  /* ------------------------ Teacher prompt update -------------------- */
   const updatePrompt = () => {
     const promptRef = ref(database, 'currentPrompt');
     set(promptRef, {
@@ -121,7 +107,6 @@ const StudentDashboard = () => {
     });
   };
 
-  /* --------------------------- Chart helpers ------------------------- */
   const getCorrectnessChartData = () => {
     const data = SUBJECTS.map((subject) => {
       const attempts = responseHistory.filter(
@@ -161,22 +146,39 @@ const StudentDashboard = () => {
     };
   };
 
-  /* ----------------------------- Helpers ----------------------------- */
+  const getWeakestSubject = () => {
+    let lowestSubject = null;
+    let lowestRate = Infinity;
+
+    SUBJECTS.forEach((subject) => {
+      const attempts = responseHistory.filter(
+        (r) => r.subject === subject && r.selectedAnswer !== RAISE_HAND_CODE
+      );
+      const total = attempts.length;
+      const correct = attempts.filter((r) => r.isCorrect).length;
+      const rate = total ? (correct / total) * 100 : null;
+
+      if (rate !== null && rate < lowestRate) {
+        lowestRate = rate;
+        lowestSubject = subject;
+      }
+    });
+
+    return lowestSubject ? `${lowestSubject} (${lowestRate.toFixed(1)}%)` : 'N/A';
+  };
+
   const renderAnswerCell = (answer) =>
     answer === RAISE_HAND_CODE ? '🖐️ Raise Hand' : answer;
 
-  /* ------------------------------ Render ----------------------------- */
   return (
     <div className="dashboard">
       <h2>Desk Dashboard</h2>
 
-      {/* Student info */}
       <div className="section">
         <p className="info"><strong>RFID:</strong> {rfid || 'Waiting for scan...'}</p>
         <p className="info"><strong>Student:</strong> {studentName || '-'}</p>
       </div>
 
-      {/* Live emotion bar */}
       <div className="section">
         <label><strong>Emotion Level:</strong></label>
         <div style={{ backgroundColor: '#eee', height: '10px', borderRadius: '5px', width: '100%' }}>
@@ -192,7 +194,6 @@ const StudentDashboard = () => {
         <p className="info">Value: {emotionValue}</p>
       </div>
 
-      {/* Latest event section */}
       <div className="section">
         <label><strong>Latest Event:</strong></label>
         {latestResponse ? (
@@ -214,7 +215,6 @@ const StudentDashboard = () => {
           <p className="info">No events yet.</p>
         )}
 
-        {/* Persistent raise-hand banner if the most recent raise-hand is NOT the latest event */}
         {lastRaiseHand && latestResponse?.id !== lastRaiseHand.id && (
           <p className="info" style={{ color: '#db8b00', fontWeight: 'bold' }}>
             🖐️ Student Raised Hand ({formatTimestamp(lastRaiseHand.timestamp)})
@@ -222,14 +222,12 @@ const StudentDashboard = () => {
         )}
       </div>
 
-      {/* Current prompt */}
       <div className="section">
         <p className="info"><strong>Current Prompt:</strong> {sharedPrompt.question}</p>
         <p className="info"><strong>Subject:</strong> {sharedPrompt.subject}</p>
         <p className="info"><strong>Correct Answer:</strong> {sharedPrompt.correctAnswer}</p>
       </div>
 
-      {/* Teacher controls */}
       <div className="section">
         <h3>Teacher: Set Prompt</h3>
         <label>Prompt:</label>
@@ -261,7 +259,6 @@ const StudentDashboard = () => {
         </button>
       </div>
 
-      {/* Response history */}
       <div className="section">
         <h3>Response History</h3>
         {responseHistory.length === 0 ? (
@@ -296,7 +293,13 @@ const StudentDashboard = () => {
         )}
       </div>
 
-      {/* Charts */}
+      <div className="section">
+        <h3>Struggling Subject</h3>
+        <p className="info">
+          <strong>Subject with lowest correctness:</strong> {getWeakestSubject()}
+        </p>
+      </div>
+
       <div className="section">
         <h3>Correctness by Subject</h3>
         <Bar
