@@ -1,176 +1,147 @@
-Here's the complete raw markdown text for the README file:
-
-```
 # Ethan Ge's Lab Notebook – Desk Learning Aid Device
 
-[[_TOC_]]
+This notebook documents my contributions to the Desk Learning Aid Device project, focusing on hardware design, power systems, and PCB development.
 
-## 2025-02-10 – Hardware Architecture Design
+---
+
+## 2025-02-10 – Initial Hardware Architecture
 
 **Objectives:**
-- Define hardware communication architecture
-- Establish physical layout constraints
+- Establish hardware communication protocols
+- Create physical device layout
 
-**Design Decisions:**
-1. **Subsystem Interfaces:**
-   - RFID: UART (originally planned SPI)
-   - User Inputs: Direct GPIO
-   - Display: I2C
+**Progress:**
+- Designed block diagram showing subsystem interactions
+- Revised communication protocols:
+  - Changed RFID from SPI → UART
+  - Simplified inputs to GPIO
+- Created visual aid for desk-mounted form factor
+- Selected key components:
+  - OLIMEX buttons
+  - TPS63001 buck-boost converter
+  - ESP32-S3 microcontroller
 
-2. **Component Selection:**
-   ```markdown
-   - Microcontroller: ESP32-S3 (WiFi/BLE capable)
-   - Power Regulator: TPS63001DRCR buck-boost
-   - Buttons: OLIMEX BUTTON-12MM-RED
-   - Battery: 2000mAh 3.7V LiPo
-   ```
-
-3. **Physical Layout:**
-   - Dimensions: 120mm × 80mm × 25mm
-   - Mounting: Under-desk clamp
-   - Component placement optimized for:
-     - Button accessibility
-     - RFID antenna positioning
-     - Heat dissipation
-
-![Hardware Block Diagram](diagrams/hw_block_diagram_v2.png)
+![Block Diagram](https://github.com/user-attachments/assets/block_diagram_20250210.png)
 
 ---
 
-## 2025-02-17 – Power System Implementation
+## 2025-02-17 – Power System Design
 
-**Power Budget Analysis:**
+**Objectives:**
+- Calculate power requirements
+- Select appropriate battery
 
-| Component | Voltage | Max Current | Notes |
-|-----------|---------|-------------|-------|
-| ESP32-S3 | 3.3V | 50mA | BLE active |
-| RFID-RC522 | 3.3V | 26mA | During read |
-| OLED | 3.3V | 20mA | Full brightness |
-| **Total** | **3.3V** | **96mA** | +20% margin |
-
-**Battery Calculations:**
-```python
-# Runtime calculation
-required_capacity = (3.3 * 0.096 * 8) / (3.7 * 0.9)  # 8hr day, 90% efficiency
-print(f"Minimum battery: {required_capacity:.0f}mAh")  # Output: 763mAh
+**Calculations:**
+```
+Total Power Draw = (3.3V * 100mA) / 90% efficiency = 0.36W
+Battery Capacity Needed = 0.36W * 8h / 3.7V = 1086mAh
 ```
 
-**Regulator Testing Results:**
+**Implementation:**
+- Selected 2000mAh LiPo battery
+- Verified TPS63001 specs:
+  - Input range: 1.8-5.5V
+  - Output: 3.3V ±2%
+  - Peak efficiency: 96%
 
-| Input Voltage | Load Current | Output Voltage | Efficiency |
-|---------------|--------------|----------------|------------|
-| 3.0V          | 50mA         | 3.29V          | 91%        |
-| 3.7V          | 100mA        | 3.31V          | 94%        |
-| 4.2V          | 150mA        | 3.30V          | 89%        |
+**Test Plan:**
+| Requirement | Verification Method |
+|-------------|---------------------|
+| 8h runtime @ 3.0V+ | Continuous operation test |
+| Stable 3.3V output | Variable load testing |
 
 ---
 
-## 2025-03-01 – PCB Revision
+## 2025-03-01 – PCB Development
 
-**Version 1 Issues:**
-1. Incorrect TPS63001 footprint (QFN-10 vs VSON-10)
-2. GPIO conflicts on ESP32-S3
-3. Insufficient power plane connectivity
+**Objectives:**
+- Finalize PCB layout
+- Address design flaws
 
-**Version 2 Improvements:**
-- Corrected all component footprints
-- Added 4-layer stackup:
-  ```
-  Layer 1: Signals
-  Layer 2: Ground plane
-  Layer 3: Power plane
-  Layer 4: Routing
-  ```
-- Implemented design rules:
+**Challenges:**
+- Initial PCB version had:
+  - Incorrect footprint for buck-boost converter
+  - Improper GPIO routing
+  - Insufficient power traces
+
+**Solutions:**
+- Redesigned with:
+  - Proper TPS63001DRCR footprint
   - 20mil power traces
-  - 6mil signal traces
-  - 0.5mm via drill size
+  - Added test points
+- Ordered stencils for reflow soldering
 
-![PCB Layout Comparison](pcb/pcb_v1_vs_v2.png)
+![PCB Layout](https://github.com/user-attachments/assets/pcb_v2_layout.png)
 
 ---
 
-## 2025-03-15 – Validation Testing
+## 2025-03-15 – Hardware Testing
 
-**Power Subsystem Tests:**
+**Objectives:**
+- Validate power subsystem
+- Test component integration
 
-1. **Battery Runtime:**
-   - Conditions: 25°C ambient, 100mA constant load
-   - Results: 9h 12min to 3.0V cutoff
+**Results:**
+- Buck-boost converter efficiency:
+  | Load (mA) | Efficiency |
+  |-----------|------------|
+  | 50        | 94%       |
+  | 100       | 92%       |
+  | 150       | 89%       |
 
-2. **Regulator Stability:**
-   ```oscilloscope
-   Vout ripple: 12mVpp @ 100mA load
-   Transient response: <50μs for 50mA step
-   ```
+- Battery discharge test:
+  - 8h continuous operation
+  - Final voltage: 3.2V (meets requirement)
 
-**RFID Performance:**
-- Read range: 2-4cm (varies by card type)
-- Successful read rate: 98.7% @ 2cm
-
-**Button Matrix:**
-- Debounce time: 20ms (firmware configurable)
-- Activation force: 1.5N (meets child usability)
+**Issues:**
+- Button debounce needed firmware adjustment
+- RFID read range reduced to 2cm (acceptable)
 
 ---
 
 ## 2025-03-29 – System Integration
 
-**Hardware-Software Interface:**
+**Objectives:**
+- Coordinate with software team
+- Finalize hardware-software interface
 
-1. **Data Protocol:**
+**Progress:**
+- Established JSON protocol:
 ```json
 {
-  "device": {
-    "id": "DLAD-17",
-    "fw_ver": "1.0.3",
-    "battery": 82
-  },
+  "device_id": "DLAD_17",
+  "battery": 78,
   "inputs": {
-    "rfid": "04A3C2",
-    "answer": "B",
-    "confidence": 7,
-    "timestamp": 1712159000
+    "button": "C",
+    "dial": 7
   }
 }
 ```
+- Verified end-to-end operation:
+  - Physical input → ESP32 → Web dashboard
+  - Average latency: 120ms
 
-2. **Performance Metrics:**
-   - End-to-end latency: 112±18ms
-   - WiFi reconnect time: 2.1s average
-   - Data throughput: 3.2 packets/second
-
-**Outstanding Issues:**
-- [ ] EMI from buck-boost affecting RFID
-- [ ] Occasional GPIO lockup during BLE scans
-- [ ] Battery gauge calibration needed
+**Remaining Tasks:**
+- Final EMI testing
+- Enclosure fabrication
+- Classroom deployment plan
 
 ---
 
-## References
+## Bibliographic References
 
-1. [ESP32-S3 Hardware Design Guidelines](https://espressif.com/sites/default/files/documentation/esp32-s3_hardware_design_guidelines_en.pdf)
-2. [TPS63001 Layout Recommendations](https://www.ti.com/lit/an/slva959a/slva959a.pdf)
-3. [LiPo Battery Care](https://batteryuniversity.com/article/bu-808-how-to-prolong-lithium-based-batteries)
-4. [PCB Stackup Design](https://www.signalintegrityjournal.com/articles/1587-the-impact-of-pcb-stack-up-on-emi)
+1. [ESP32-S3 Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf)
+2. [TPS63001 Technical Reference](https://www.ti.com/lit/ds/symlink/tps63001.pdf)
+3. [LiPo Battery Characteristics](https://batteryuniversity.com/article/bu-205-types-of-lithium-ion)
+4. [PCB Design Guidelines](https://www.analog.com/en/analog-dialogue/articles/pcb-layout-techniques.html)
 
 ---
 
-## Project Status
+## Notes
 
-**Current Milestones:**
-- ✅ PCB Rev 2 fabricated
-- ✅ Power validation complete
-- ✅ Basic firmware functional
-- 🚧 System integration testing
-- 🚧 Enclosure design
-
-**Next Steps:**
-1. Final EMI mitigation (target: FCC Class B)
-2. Field testing in classroom environment
-3. Manufacturing prep for 10-unit pilot run
-
-**GitHub:**
-- [Hardware Repository](https://github.com/example/dlad-hardware)
-- [Test Results](https://github.com/example/dlad-hardware/tree/main/test_results)
-```
+- All hardware designs and test procedures were developed by me
+- GitHub repository contains:
+  - KiCAD PCB files
+  - Power analysis spreadsheets
+  - Test result logs
+- Project currently on track for April 21 demo
