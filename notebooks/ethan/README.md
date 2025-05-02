@@ -91,7 +91,10 @@ Battery Capacity Needed = 0.36W * 8h / 3.7V = 1086mAh
 
 - Battery discharge test:
   - 8h continuous operation
-  - Final voltage: 3.2V (meets requirement)
+  - Final voltage: 3.27V (meets requirement)
+ 
+![Test Results](https://github.com/user-attachments/assets/5b31bcd8-5508-4f8d-b3f5-f9244525cff5)
+
 
 **Issues:**
 - Button debounce needed firmware adjustment
