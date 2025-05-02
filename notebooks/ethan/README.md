@@ -71,7 +71,7 @@ Battery Capacity Needed = 0.36W * 8h / 3.7V = 1086mAh
   - Added test points
 - Ordered stencils for reflow soldering
 
-![PCB Layout](https://github.com/user-attachments/assets/pcb_v2_layout.png)
+![PCB Layout](https://github.com/user-attachments/assets/daa2333a-a7f5-4728-ab04-cc6f4dfd0292)
 
 ---
 
