@@ -27,5 +27,7 @@ The desk learning aid device will function through various buttons and a scrolle
 
  - [Video](https://drive.google.com/file/d/13fJDIUi9QKVj2l2KASiBSuiVs_a9EkWj/view?usp=sharing)
  - [Desk Aid Learning Device Team 27.pptx](https://github.com/user-attachments/files/20017662/Desk.Aid.Learning.Device.Team.27.pptx)
+ - [445 Design Document.pdf](https://github.com/user-attachments/files/20017668/445.Design.Document.3.pdf)
+
 
 
