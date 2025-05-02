@@ -109,16 +109,7 @@ Battery Capacity Needed = 0.36W * 8h / 3.7V = 1086mAh
 - Finalize hardware-software interface
 
 **Progress:**
-- Established JSON protocol:
-```json
-{
-  "device_id": "DLAD_17",
-  "battery": 78,
-  "inputs": {
-    "button": "C",
-    "dial": 7
-  }
-}
+- Finalized firmware for ESP32
 ```
 - Verified end-to-end operation:
   - Physical input → ESP32 → Web dashboard
