@@ -23,7 +23,7 @@ This notebook documents the design, development, and testing efforts for the Des
 - Finalize communication protocol between ESP32 and Web App.
 
 **Progress:**
-- Decided to send data from ESP32 → Web App via BLE, with ESP32 acting as BLE server.
+- Decided to send data from ESP32 → Web App via Wifi, with ESP32 acting as Wifi server.
 - Drafted JSON data schema:
 ```json
 {
@@ -51,7 +51,7 @@ This notebook documents the design, development, and testing efforts for the Des
   - Debounce button presses.
   - Sample potentiometer input via ADC1_CH8.
   - Send responses to Firebase via HTTPS.
-- Verified BLE round-trip latency under 100ms and analog scaling of emotion (1–10).
+- Verified WiFi round-trip latency under 100ms and analog scaling of emotion (1–10).
 
 ---
 
@@ -66,6 +66,17 @@ This notebook documents the design, development, and testing efforts for the Des
   - Allows teacher to push prompts to Firebase.
   - Visualizes subject performance using Chart.js.
 - Integrated Firebase Realtime Database and onValue listeners.
+
+<img width="242" alt="Screenshot 2025-05-01 at 3 58 56 PM" src="https://github.com/user-attachments/assets/02a5c67c-e478-4602-b1a5-a3d076fe4876" />
+
+
+<img width="221" alt="Screenshot 2025-05-01 at 3 59 00 PM" src="https://github.com/user-attachments/assets/1d1b1cf3-f279-4cc3-9624-42b7591bee39" />
+
+
+<img width="225" alt="Screenshot 2025-05-01 at 4 01 00 PM" src="https://github.com/user-attachments/assets/b395e531-ea42-40e3-8f75-d1a915d00ee8" />
+
+
+
 
 ---
 
@@ -99,6 +110,12 @@ BLE Sensitivity: –90 dBm
 - Verified timestamps now use `time(NULL) * 1000` for accurate ms precision.
 - Fixed JSON encoding and logging in Firebase.
 - Coordinated with hardware team to validate ESP32 behavior on PCB power-up.
+
+<img width="1144" alt="Screenshot 2025-05-01 at 4 06 28 PM" src="https://github.com/user-attachments/assets/f437f391-97b4-4657-bfff-af872827cc5d" />
+
+<img width="1144" alt="Screenshot 2025-05-01 at 4 06 28 PM" src="https://github.com/user-attachments/assets/972cbcd8-8f55-4952-9912-47b708d6d05c" />
+
+
 
 **Remaining Tasks:**
 - Final UI polish (labels, error states).
