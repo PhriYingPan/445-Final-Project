@@ -110,7 +110,6 @@ Battery Capacity Needed = 0.36W * 8h / 3.7V = 1086mAh
 
 **Progress:**
 - Finalized firmware for ESP32
-```
 - Verified end-to-end operation:
   - Physical input → ESP32 → Web dashboard
   - Average latency: 120ms
