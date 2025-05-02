@@ -113,7 +113,7 @@ BLE Sensitivity: –90 dBm
 
 <img width="1144" alt="Screenshot 2025-05-01 at 4 06 28 PM" src="https://github.com/user-attachments/assets/f437f391-97b4-4657-bfff-af872827cc5d" />
 
-<img width="1144" alt="Screenshot 2025-05-01 at 4 06 28 PM" src="https://github.com/user-attachments/assets/972cbcd8-8f55-4952-9912-47b708d6d05c" />
+<img width="683" alt="Screenshot 2025-05-01 at 4 23 56 PM" src="https://github.com/user-attachments/assets/bcf6157d-593b-484a-bd59-469a2cab8ff9" />
 
 
 
