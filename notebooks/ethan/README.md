@@ -21,7 +21,7 @@ This notebook documents my contributions to the Desk Learning Aid Device project
   - TPS63001 buck-boost converter
   - ESP32-S3 microcontroller
 
-![Block Diagram](https://github.com/user-attachments/assets/block_diagram_20250210.png)
+![Block Diagram](https://github.com/user-attachments/assets/487aa8da-36b6-45d8-8613-9655399f1e17)
 
 ---
 
