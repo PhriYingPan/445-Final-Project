@@ -1,6 +1,6 @@
 # Desk Aid Learning Device 
 
-# Team Members
+### Team Members
 
 - [Aidan Johnston](https://github.com/OfficialPouya)
 - [Conan Pan](https://github.com/PhriYingPan)
