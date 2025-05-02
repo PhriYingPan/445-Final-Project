@@ -144,4 +144,3 @@ Battery Capacity Needed = 0.36W * 8h / 3.7V = 1086mAh
   - KiCAD PCB files
   - Power analysis spreadsheets
   - Test result logs
-- Project currently on track for April 21 demo
