@@ -17,7 +17,7 @@ This notebook documents the design, development, and testing efforts for the Des
 
 ---
 
-## 2025-02-14 – BLE Communication Plan
+## 2025-02-14 – WiFi Communication Plan
 
 **Objectives:**
 - Finalize communication protocol between ESP32 and Web App.
@@ -83,7 +83,7 @@ This notebook documents the design, development, and testing efforts for the Des
 ## 2025-03-22 – Tolerance and Signal Analysis
 
 **Objectives:**
-- Evaluate BLE reliability in classroom conditions.
+- Evaluate WiFi reliability in classroom conditions.
 
 **Equations:**
 Using log-distance path loss model:
@@ -93,10 +93,10 @@ PL(d) = PL(d₀) + 10n log₁₀(d/d₀)
 PL(10 m) = 40 dB + 10 × 2.7 × log₁₀(10) = 67 dB
 
 ESP32 TX Power: +4 dBm  
-BLE Sensitivity: –90 dBm  
+WiFi Sensitivity: –90 dBm  
 → Received power = –63 dBm → Link margin = 27 dB
 
-**Result:** BLE communication is reliable across a 10-meter classroom with expected margin.
+**Result:** WiFi communication is reliable across a 10-meter classroom with expected margin.
 
 ---
 
