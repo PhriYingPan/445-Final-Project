@@ -1,83 +1,124 @@
-# Alex Worklog
+# Conan Pan's Lab Notebook – Desk Learning Aid Device
 
-[[_TOC_]]
+This notebook documents the design, development, and testing efforts for the Desk Learning Aid Device, specifically focusing on the web application and firmware components I was responsible for.
 
-# 2021-02-05 - Discussion with Professor Schuh
+---
 
-Professor Schuh gave us the idea to use piezo resistors or Velostat to perform the weight/pressure sensing that we need. Additionally, the tilt sensing probably won’t be necessary - we can correspond the rear left wheel with the front left wheel and rear right wheel with the front right wheel, as those pairs of wheels should be spinning at roughly the same velocity during turning. This simplifies our design.
+## 2025-02-01 – Initial Project Direction
 
-# 2021-02-10 - Parts Updates
+**Objectives:**
+- Discussed core project idea with teammates and TA.
+- Brainstormed solutions for capturing student engagement without screens.
 
-Currently, I am looking at Dual VESC options that can simplify our design, minimize space.
-Here are some examples:
+**Progress:**
+- Proposed idea of combining physical desk input (RFID, buttons, scroller) with a teacher-facing web dashboard.
+- Identified potential microcontroller (ESP32-S3) and real-time database (Firebase).
+- Sketched initial system block diagram.
 
-![](esc1.png)
+---
 
-[link](https://flipsky.net/collections/electronic-products/products/dual-fsesc6-6-based-upon-vesc6-with-aluminum-heatsink)
+## 2025-02-14 – BLE Communication Plan
 
-This one has dual MCUs, with a physical switch to include or disclude the CAN connection
-between both of the VESCs.
+**Objectives:**
+- Finalize communication protocol between ESP32 and Web App.
 
-![](esc2.png)
+**Progress:**
+- Decided to send data from ESP32 → Web App via BLE, with ESP32 acting as BLE server.
+- Drafted JSON data schema:
+```json
+{
+  "timestamp": 1712159000000,
+  "rfid": "04A3C2",
+  "emotion": 7,
+  "selectedAnswer": "B",
+  "question": "Which fraction is smallest?",
+  "subject": "Math",
+  "correctAnswer": "C",
+  "isCorrect": false
+}
+```
 
-[link](https://massivestator.com/products/focbox-unity-dual-motor-controller)
+---
 
-This one has a single MCU that acts for both motors.
+## 2025-03-01 – Breadboard Prototype
 
-I am currently speaking with Loaded Boards, a longboard deck and skateboard wheel company that Boosted had a business relationship with. They are willing to send a B-grade deck and wheels at a lower price. Wheel durometer options are 77a, 80a, 83a. The lower the durometer number, the softer the
-wheel urethane.
+**Objectives:**
+- Demonstrate basic functionality with ESP32-S3 on breadboard.
 
-After discussions with the team, we decided on the hardest wheel option, 83a, as it would slip easier than the softer wheels. We want to make sure we can demonstrate traction control in our project.
+**Progress:**
+- Wired 5 push buttons, 1 rotary scroller, RFID reader.
+- Developed C firmware (`hello_world_main.c`) to:
+  - Debounce button presses.
+  - Sample potentiometer input via ADC1_CH8.
+  - Send responses to Firebase via HTTPS.
+- Verified BLE round-trip latency under 100ms and analog scaling of emotion (1–10).
 
-For weight sensing, I also came across a flexiforce sensor that we may consider using. The board will weigh about 20 pounds, we ideally would like a range of double that. This flexiforce sensor is high on my list.
+---
 
-![](flexiforce.png)
+## 2025-03-15 – Dashboard Development
 
-[link](https://www.tekscan.com/products-solutions/force-sensors/a401?tab=specifications-performance)
+**Objectives:**
+- Build interactive frontend dashboard for teachers.
 
-# 2021-02-12 - Acquiring a Battery
+**Progress:**
+- Implemented `StudentDashboard.jsx` in React:
+  - Displays correctness history, emotion bar, and raise-hand notifications.
+  - Allows teacher to push prompts to Firebase.
+  - Visualizes subject performance using Chart.js.
+- Integrated Firebase Realtime Database and onValue listeners.
 
-I have contacted several custom battery builders in the esk8 (custom electric longboard builders) forum, located [here](https://forum.esk8.news/).  Builder Zach Tetra from [Black Fox Builds](https://forum.esk8.news/t/black-fox-boards-east-coast-battery-building-services/37402) has the following pair of 6s4p batteries that he can send immediately:
+---
 
-![](blackfox_battery.png)
+## 2025-03-22 – Tolerance and Signal Analysis
 
-For our project, I would prefer a 12s battery for adequate performance. The pack above is made up of Samsung 30Q cells, I found more info [here](https://lygte-info.dk/review/batteries2012/Samsung%20INR18650-30Q%203000mAh%20(Pink)%20UK.html). We can convert the 6s4p pack into a 12s2p pack, which will be nearly 200Whr.
-This will be plenty, for up to 10 miles of range. I have never worked on batteries before. When researching how to do so, I found this over-an-hour-long video [here]( https://www.youtube.com/watch?v=7QjO90LG67g), that clearly depicts and describes everything required to safely build a reliable battery pack.
+**Objectives:**
+- Evaluate BLE reliability in classroom conditions.
 
-I will need access to a spot welder to complete this - we’ve reached out to Illini Solar Car, as they have claimed the spot welder on campus.
+**Equations:**
+Using log-distance path loss model:
 
-# 2021-02-18 - Battery Update
+PL(d) = PL(d₀) + 10n log₁₀(d/d₀)
 
-Received the pair of 6s4p batteries, along with battery building supplies such as a Smart BMS, nickel strips, fishpaper, 10 gauge wire, and more. Upon closer inspection, splitting the 6s4p pack into a 12s2p pack is difficult, as there is no leverage to remove the existing H-shaped nickel strips.
+PL(10 m) = 40 dB + 10 × 2.7 × log₁₀(10) = 67 dB
 
-The pair of 6s4p packs take up a lot less space than I expected. It would be easier to make a 12s4p pack out of them instead, which will provide us the same power as I required from earlier at nearly 500 Whr. Additionally, I have gotten in contact with a coworker who has a battery spot welder I can use.
+ESP32 TX Power: +4 dBm  
+BLE Sensitivity: –90 dBm  
+→ Received power = –63 dBm → Link margin = 27 dB
 
-Once I have planned out the build and assembled the materials, we should be good to go to complete the battery.
+**Result:** BLE communication is reliable across a 10-meter classroom with expected margin.
 
-# 2021-02-24 - Investigation acquiring RPM data from VESCs
+---
 
-I have done some investigating of the VESC hardware and software and discovered that you can query them for RPM telemetry data. This removes the need for us to develop RPM sensing
-around the motorized wheels.
+## 2025-03-29 – Final Integration and Debugging
 
-To accomplish this however, we may need to talk to each VESC individually. Having a dual VESC is convenient, but this may interfere with our ability to query data from them properly. Some dual VESCs have dual MCUs, other more recent designs have single MCUs as shown earlier in this journal.
+**Objectives:**
+- Complete testing loop from physical input to UI.
+- Fix Firebase timestamp issues.
 
-# 2021-03-01 - Parts update
+**Progress:**
+- Verified timestamps now use `time(NULL) * 1000` for accurate ms precision.
+- Fixed JSON encoding and logging in Firebase.
+- Coordinated with hardware team to validate ESP32 behavior on PCB power-up.
 
-From further discussions about the issue of communicating to both VESCs individually or to a ‘master’ VESC to both, we have decided to go with a pair of single VESCs. For example, we could attach a CANBUS cable between the pair of VESCs in order to allow them to communicate with each other, or simply split two PPM signals to pass throttle information individually, among various other choices. In other words, the VESCs can work in tandem with one another or can be independent from each other.
+**Remaining Tasks:**
+- Final UI polish (labels, error states).
+- Secure Firebase rules and access tokens.
+- Conduct classroom-scale demo.
 
-I have assembled a significant portion of the board at this point, as seen here in this picture below:
+---
 
-![](parts_update.png)
+## Bibliographic References
 
-Some issues:
+1. [ESP32-S3-WROOM Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-s3-wroom-1_datasheet_en.pdf)  
+2. [Firebase Realtime Database Docs](https://firebase.google.com/docs/database)  
+3. [Chart.js Documentation](https://www.chartjs.org/docs/)  
+4. [Adafruit Push Button #492](https://www.adafruit.com/product/492)  
+5. [Bourns PDB181 Datasheet](https://www.bourns.com/docs/Product-Datasheets/pdb181.pdf)
 
-- The motor pulley is scraping on the motor mount. This is an issue of tolerances, as the
-motor mount I am using is 6mm wide and the Motor shaft has a tolerance of 6.2mm +-
-0.5mm. In theory, we should have 0.2mm of space, but the margin of error was not in our
-favor.
-  ![](motor_pulley_scraping.png)
-- The threads on the ends of the trucks are not deep enough. We need bearing spacers to
-push the wheel out.
-  ![](bearing_spacer.png)
-  
-  
+---
+
+## Notes
+
+- All application code (ESP32 firmware and web dashboard) was written by me.
+- GitHub repo includes full commit history and test data.
+
