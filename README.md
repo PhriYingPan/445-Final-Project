@@ -2,7 +2,7 @@
 
 ### Team Members
 
-- [Aidan Johnston](https://github.com/OfficialPouya)
+- [Aidan Johnston](https://github.com/AidanJ16)
 - [Conan Pan](https://github.com/PhriYingPan)
 - [Ethan Ge](https://github.com/ethange2)
 
@@ -25,6 +25,6 @@ The desk learning aid device will function through various buttons and a scrolle
 
 # Results
 
- - [Video] (https://drive.google.com/file/d/13fJDIUi9QKVj2l2KASiBSuiVs_a9EkWj/view?usp=sharing)
+ - [Video](https://drive.google.com/file/d/13fJDIUi9QKVj2l2KASiBSuiVs_a9EkWj/view?usp=sharing)
 
 
