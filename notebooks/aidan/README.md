@@ -137,37 +137,6 @@ This notebook documents the comprehensive design, development, testing, and firm
 * Recognized need for external RST circuit for reliable LCD initialization.
 
 ---
-
-## Subsystem Design Contributions
-
-### RFID Subsystem
-
-* Used NXP PN512 NFC reader.
-* Verified compatibility with 3.3V logic and selected SPI mode.
-* Designed schematic based on PN512 datasheet, including series termination resistors and IRQ pull-up.
-
-### Power Subsystem
-
-* Used TP4057 LiPo charging IC with thermal regulation and indicator LEDs.
-* Integrated TPS63001 for buck-boost conversion to stable 3.3V.
-
-### ESP32-S3 Microcontroller
-
-* Customized GPIO mapping for optimal routing and functional partitioning.
-* Verified correct bootloader setup: GPIO0 pulled low, EN toggled, GPIO03 pulled high during programming.
-
-### Interface Subsystem
-
-* Used EA DOGS104-A SPI LCD.
-* Referenced official datasheet for SID/SOD pin mapping.
-
-### Input Subsystem
-
-* Designed input system using 5 buttons and a potentiometer.
-* Added RC low-pass filters (debouncing) and direct analog connection for the rotary encoder.
-
----
-
 ## Verification Procedures
 
 **1. DRC Testing**
