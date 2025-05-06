@@ -40,7 +40,7 @@ This notebook documents the design, development, and testing efforts for the Des
 
 ---
 
-## 2025-03-01 – Breadboard Prototype
+## 2025-03-10 – Breadboard Prototype
 
 **Objectives:**
 - Demonstrate basic functionality with ESP32-S3 on breadboard.
@@ -100,7 +100,7 @@ WiFi Sensitivity: –90 dBm
 
 ---
 
-## 2025-03-29 – Final Integration and Debugging
+## 2025-04-29 – Final Integration and Debugging
 
 **Objectives:**
 - Complete testing loop from physical input to UI.
