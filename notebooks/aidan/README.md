@@ -180,8 +180,3 @@ This notebook documents the comprehensive design, development, testing, and firm
 11. U8G2 Library Documentation. (2024). *Monochrome Graphics Library for Embedded Devices*.
 
 ---
-
-## Notes
-
-* All schematic and layout design in KiCad was completed by Aidan Johnston.
-* PCB versions, schematics, and logs available in version-controlled GitHub repository.
