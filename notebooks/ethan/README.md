@@ -4,7 +4,7 @@ This notebook documents my contributions to the Desk Learning Aid Device project
 
 ---
 
-## 2025-02-10 – Initial Hardware Architecture
+## 2025-02-01– Initial Hardware Architecture
 
 **Objectives:**
 - Establish hardware communication protocols
