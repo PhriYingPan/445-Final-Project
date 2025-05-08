@@ -52,7 +52,7 @@ Battery Capacity Needed = 0.36W * 8h / 3.7V = 1086mAh
 
 ---
 
-## 2025-03-10 – PCB Development
+## 2025-03-05 – PCB Development
 
 **Objectives:**
 - Finalize PCB layout
@@ -75,7 +75,7 @@ Battery Capacity Needed = 0.36W * 8h / 3.7V = 1086mAh
 
 ---
 
-## 2025-03-15 – Hardware Testing
+## 2025-03-13 – Hardware Testing
 
 **Objectives:**
 - Validate power subsystem
@@ -102,7 +102,7 @@ Battery Capacity Needed = 0.36W * 8h / 3.7V = 1086mAh
 
 ---
 
-## 2025-03-22 – System Integration
+## 2025-03-24 – System Integration
 
 **Objectives:**
 - Coordinate with software team
