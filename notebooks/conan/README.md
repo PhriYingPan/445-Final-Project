@@ -40,7 +40,7 @@ This notebook documents the design, development, and testing efforts for the Des
 
 ---
 
-## 2025-03-10 – Breadboard Prototype
+## 2025-03-05 – Breadboard Prototype
 
 **Objectives:**
 - Demonstrate basic functionality with ESP32-S3 on breadboard.
@@ -55,7 +55,7 @@ This notebook documents the design, development, and testing efforts for the Des
 
 ---
 
-## 2025-03-15 – Dashboard Development
+## 2025-03-13 – Dashboard Development
 
 **Objectives:**
 - Build interactive frontend dashboard for teachers.
@@ -80,7 +80,7 @@ This notebook documents the design, development, and testing efforts for the Des
 
 ---
 
-## 2025-03-22 – Tolerance and Signal Analysis
+## 2025-03-24 – Tolerance and Signal Analysis
 
 **Objectives:**
 - Evaluate WiFi reliability in classroom conditions.
