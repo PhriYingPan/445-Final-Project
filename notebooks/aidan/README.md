@@ -19,7 +19,7 @@ This notebook documents the comprehensive design, development, testing, and firm
 
 ---
 
-## 2025-02-12 – Finalize Project
+## 2025-02-14 – Finalize Project
 
 **Objectives:**
 
@@ -124,7 +124,7 @@ This notebook documents the comprehensive design, development, testing, and firm
 
 ---
 
-## 2025-04-25 – Software Testing
+## 2025-04-29 – Software Testing
 
 **Objectives:**
 
