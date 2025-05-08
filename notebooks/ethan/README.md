@@ -25,7 +25,7 @@ This notebook documents my contributions to the Desk Learning Aid Device project
 
 ---
 
-## 2025-02-17 – Power System Design
+## 2025-02-14– Power System Design
 
 **Objectives:**
 - Calculate power requirements
@@ -52,7 +52,7 @@ Battery Capacity Needed = 0.36W * 8h / 3.7V = 1086mAh
 
 ---
 
-## 2025-03-01 – PCB Development
+## 2025-03-10 – PCB Development
 
 **Objectives:**
 - Finalize PCB layout
@@ -102,7 +102,7 @@ Battery Capacity Needed = 0.36W * 8h / 3.7V = 1086mAh
 
 ---
 
-## 2025-03-29 – System Integration
+## 2025-03-22 – System Integration
 
 **Objectives:**
 - Coordinate with software team
